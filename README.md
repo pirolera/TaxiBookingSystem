@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pirolera/TaxiBookingSystem.svg?branch=master)](https://travis-ci.org/pirolera/TaxiBookingSystem)
+
 # Taxi Booking System
 
 The Taxi Booking system provides a way to book three cabs to take customers anywhere within a grid defined by 32-bit integers. It provides three main APIs:  
