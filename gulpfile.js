@@ -13,7 +13,7 @@ const runSequence = require('run-sequence');
 // Run eslint tests
 gulp.task('lint', () => {
   // Run on all js files except those in the node_modules or reports directories
-  return gulp.src(['**/*.js', '!node_modules/**', '!reports/**'])
+  return gulp.src(['**/*.js', '!node_modules/**', '!coverage/**'])
     // Run lint with the config file
     .pipe(eslint('./config/.eslintrc'))
     // Print any error or warning details to the console
@@ -62,7 +62,6 @@ gulp.task('test-unit-code-coverage', ['test-unit-code-coverage-setup'], () => {
   })
     .pipe(mocha())
     .pipe(istanbul.writeReports({
-      dir: './reports/coverage/unit',
       reporters: [
         'text',
         'html',
