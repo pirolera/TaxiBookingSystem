@@ -1,0 +1,47 @@
+{
+  "name": "TaxiBooking",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "gulp lint test-unit-code-coverage",
+    "precommit": "gulp preCommit",
+    "start": "node ./server.js"
+  },
+  "keywords": [
+    "Taxi",
+    "Booking"
+  ],
+  "pre-commit": [
+    "precommit"
+  ],
+  "author": "Piro Lera",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-istanbul": "^1.0.0",
+    "gulp-mocha": "^3.0.0",
+    "gulp-run-command": "0.0.7",
+    "nodemon": "^1.11.0",
+    "pre-commit": "^1.2.2",
+    "run-sequence": "^1.2.2",
+    "sinon": "^2.1.0"
+  },
+  "engines": {
+    "node": "^6.10.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cfenv": "^1.0.4",
+    "express": "^4.14.1",
+    "fs": "0.0.1-security",
+    "module-alias": "^2.0.0",
+    "path": "^0.12.7",
+    "request": "https://registry.npmjs.org/request/-/request-2.79.0.tgz"
+  },
+  "_moduleAliases": {
+    "@constants": "src/constants",
+    "@src": "src",
+    "@taxiBooking": "src/taxiBooking"
+  }
+}

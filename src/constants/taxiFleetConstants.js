@@ -1,0 +1,12 @@
+'use strict';
+
+const VALUES = {
+  FIRST_INDEX: 1,
+  MAX_GRID_INDEX: 2147483647,
+  MIN_GRID_INDEX: -2147483648,
+  NUMBER_OF_TAXIS: 3,
+  SECOND_INDEX: 2,
+  THIRD_INDEX: 3
+};
+
+module.exports = VALUES;

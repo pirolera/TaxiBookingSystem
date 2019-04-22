@@ -1,0 +1,126 @@
+swagger: '2.0'
+info:
+  title: Taxi Booking System
+  version: '1.0'
+  description: |-
+    The Taxi Booking system provides a way to book three cabs to take customers anywhere within a grid defined by 32-bit integers.
+host: localhost:8080
+basePath: "/"
+schemes:
+- http
+paths:
+  /api/reset:
+    post:
+      summary: Resets the state of the system with the three taxis located at 0,0 and available
+      description: ''
+      operationId: ''
+      tags: []
+      responses:
+        200:
+          description: System reset successfully
+        500:
+          description: Internal Server Error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/book:
+    post:
+      summary: Book a taxi for a customer
+      description: ''
+      operationId: ''
+      tags: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: data
+        in: body
+        description: Customer booking information
+        required: true
+        schema:
+          $ref: '#/definitions/BookingInformation'
+      responses:
+        200:
+          description: System processed booking request successfully
+          schema:
+            $ref: '#/definitions/BookingResponse'
+        400:
+          description: Unable to handle request as received.  Please validate request and try again.
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal Server Error.
+          schema:
+            $ref: '#/definitions/Error'
+  /api/tick:
+    post:
+      summary: Advances the state of the system by 1 time unit
+      description: ''
+      operationId: ''
+      tags: []
+      produces:
+      - application/json
+      responses:
+        200:
+          description: State updated correctly
+          schema:
+            $ref: '#/definitions/TickResponse'
+        500:
+          description: Internal Server Error.
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  BookingInformation:
+    type: object
+    properties:
+      source:
+        $ref: '#/definitions/Position'
+      destination:
+        $ref: '#/definitions/Position'
+  BookingResponse:
+    type: object
+    properties:
+      car_id:
+        type: number
+        example: 1
+      total_time:
+        type: number
+        example: 5
+  Position:
+    type: object
+    properties:
+      x:
+        type: number
+        example: 1
+      y:
+        type: number
+        example: 1
+  TickResponse:
+    type: array
+    items:
+      $ref: '#/definitions/TaxiState'
+  TaxiState:
+    type: object
+    properties:
+      booked:
+        type: boolean
+        example: true
+      hasCustomer:
+        type: boolean
+        example: true
+      id:
+        type: number
+        example: 1
+      x:
+        type: number
+        example: 1
+      y:
+        type: number
+        example: 1
+  Error:
+    type: object
+    properties:
+      error:
+        type: string
+        description: Displays error message.
+        example: 'Please supply a valid integer value.'
