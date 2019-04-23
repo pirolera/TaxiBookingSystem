@@ -17,6 +17,7 @@
   "author": "Piro Lera",
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^3.0.3",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
     "gulp-istanbul": "^1.0.0",

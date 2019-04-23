@@ -4,4 +4,4 @@ node_js:
 before_install:
   - npm install -g codecov
 after_success:
-  - ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec && codecov
+  - cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
